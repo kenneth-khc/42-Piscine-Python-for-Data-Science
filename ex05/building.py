@@ -8,6 +8,11 @@ def main():
 
 
 def parse_args() -> str:
+    """
+    Parse the argument passed into the program.
+    If no argument is passed, read the stdin for one.
+    AssertionError when more than one argument is passed.
+    """
     try:
         if len(sys.argv) == 1:
             print("What is the text to count?")
@@ -21,33 +26,44 @@ def parse_args() -> str:
 
 
 def count_characters(string: str) -> dict:
-    dictionary = {"characters": 0, "uppercases": 0, "lowercases": 0,
-                  "punctuations": 0, "spaces": 0, "digits": 0}
+    """
+    Count the number of characters, uppercases, lowercases,
+    punctuations, spaces and digits.
+    Store the numbers in a character_counts.
+    """
+    character_counts = {"characters": 0, "uppercases": 0, "lowercases": 0,
+                        "punctuations": 0, "spaces": 0, "digits": 0}
     punctuations = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
-    dictionary["characters"] = len(string)
+    character_counts["characters"] = len(string)
     for char in string:
         if char.isupper():
-            dictionary["uppercases"] += 1
+            character_counts["uppercases"] += 1
         elif char.islower():
-            dictionary["lowercases"] += 1
+            character_counts["lowercases"] += 1
         elif char.isspace():
-            dictionary["spaces"] += 1
+            character_counts["spaces"] += 1
         elif char.isdigit():
-            dictionary["digits"] += 1
+            character_counts["digits"] += 1
         elif char in punctuations:
-            dictionary["punctuations"] += 1
-    return dictionary
+            character_counts["punctuations"] += 1
+    return character_counts
 
 
-def print_results(dictionary: dict):
-    print("The text contains " + str(dictionary["characters"]) +
+def print_results(character_counts: dict):
+    """
+    Print the results using the numbers stored
+    in the character_counts.
+    """
+    print("The text contains " + str(character_counts["characters"]) +
           " characters:")
-    print(str(dictionary["uppercases"]) + " upper letters")
-    print(str(dictionary["lowercases"]) + " lower letters")
-    print(str(dictionary["punctuations"]) + " punctuation marks")
-    print(str(dictionary["spaces"]) + " spaces")
-    print(str(dictionary["digits"]) + " digits")
+    print(str(character_counts["uppercases"]) + " upper letters")
+    print(str(character_counts["lowercases"]) + " lower letters")
+    print(str(character_counts["punctuations"]) + " punctuation marks")
+    print(str(character_counts["spaces"]) + " spaces")
+    print(str(character_counts["digits"]) + " digits")
 
 
 if __name__ == "__main__":
-    main()
+    # main()
+    print(parse_args.__doc__)
+    print(count_characters.__doc__)
