@@ -2,6 +2,12 @@ import sys
 
 
 def valid_argument(text_to_encode: str) -> bool:
+    """
+    Program only supports alphanumeric values and space.
+    Check for valid input.
+    """
+    if text_to_encode == "":
+        return False
     valid = " ABCDEFGHIJKLMOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
     for char in text_to_encode:
         if char not in valid:
@@ -10,6 +16,9 @@ def valid_argument(text_to_encode: str) -> bool:
 
 
 def convert_to_morse(text_to_encode):
+    """
+    Encode the text into morse code according to the dictionary.
+    """
     MORSE_CODE = {" ": "/", "A": ".-", "B": "-...", "C": "-.-.",
                   "D": "-..", "E": ".", "F": "..-.", "G": "--.",
                   "H": "....", "I": "..", "J": ".---", "K": "-.-",
@@ -24,6 +33,10 @@ def convert_to_morse(text_to_encode):
 
 
 def main():
+    """
+    Ensure program only runs with one argument passed in.
+    Ensure argument passed in is valid.
+    """
     try:
         assert len(sys.argv) == 2
         assert valid_argument(sys.argv[1])
