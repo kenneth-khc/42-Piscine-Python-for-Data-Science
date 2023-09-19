@@ -1,12 +1,6 @@
 import sys
 
 
-def main():
-    arg = parse_args()
-    count = count_characters(arg)
-    print_results(count)
-
-
 def parse_args() -> str:
     """
     Parse the argument passed into the program.
@@ -29,7 +23,7 @@ def count_characters(string: str) -> dict:
     """
     Count the number of characters, uppercases, lowercases,
     punctuations, spaces and digits.
-    Store the numbers in a character_counts.
+    Store the numbers in character_counts.
     """
     character_counts = {"characters": 0, "uppercases": 0, "lowercases": 0,
                         "punctuations": 0, "spaces": 0, "digits": 0}
@@ -63,7 +57,11 @@ def print_results(character_counts: dict):
     print(str(character_counts["digits"]) + " digits")
 
 
+def main():
+    arg = parse_args()
+    count = count_characters(arg)
+    print_results(count)
+
+
 if __name__ == "__main__":
-    # main()
-    print(parse_args.__doc__)
-    print(count_characters.__doc__)
+    main()
