@@ -58,6 +58,9 @@ def print_results(character_counts: dict):
 
 
 def main():
+    """
+    Parse args and error handle
+    """
     arg = parse_args()
     count = count_characters(arg)
     print_results(count)
