@@ -5,7 +5,7 @@ def ft_tqdm(lst: range) -> None:
     """
     for i in lst:
         completion = int(i / len(lst) * 100) + 1
-        max_bar_length = 130
+        max_bar_length = 123
         bar_length = int(i / len(lst) * (max_bar_length)) + 1
         spaces = max_bar_length - bar_length
         formatted_strings = []

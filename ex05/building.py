@@ -1,24 +1,6 @@
 import sys
 
 
-def parse_args() -> str:
-    """
-    Parse the argument passed into the program.
-    If no argument is passed, read the stdin for one.
-    AssertionError when more than one argument is passed.
-    """
-    try:
-        if len(sys.argv) == 1:
-            print("What is the text to count?")
-            argument = sys.stdin.readline()
-        else:
-            assert len(sys.argv) == 2, "AssertionError: Too many arguments"
-            argument = sys.argv[1]
-        return argument
-    except AssertionError as error:
-        print(error)
-
-
 def count_characters(string: str) -> dict:
     """
     Count the number of characters, uppercases, lowercases,
@@ -61,9 +43,18 @@ def main():
     """
     Parse args and error handle
     """
-    arg = parse_args()
-    count = count_characters(arg)
-    print_results(count)
+    try:
+        if len(sys.argv) == 1:
+            print("What is the text to count?")
+            argument = sys.stdin.readline()
+        else:
+            assert len(sys.argv) == 2, "AssertionError: Too many arguments"
+            argument = sys.argv[1]
+    except AssertionError as error:
+        print(error)
+    else:
+        count = count_characters(argument)
+        print_results(count)
 
 
 if __name__ == "__main__":

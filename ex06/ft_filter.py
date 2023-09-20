@@ -1,7 +1,7 @@
 def ft_filter(function, iterable):
-    """
-    Iterate through each element in iterable and apply function to it.
-    Store the element into a new list if true.
-    """
+    """filter(function or None, iterable) --> filter object
+
+Return an iterator yielding those items of iterable for which function(item)
+is true. If function is None, return the items that are true."""
     filtered_list = [i for i in iterable if function(i)]
     return filtered_list

@@ -34,7 +34,7 @@ def main():
     A list containing the filtered words
     """
     try:
-        assert len(sys.argv) == 3, "text"
+        assert len(sys.argv) == 3
         assert is_integer(sys.argv[2])
     except AssertionError:
         print("AssertionError: the arguments are bad")
