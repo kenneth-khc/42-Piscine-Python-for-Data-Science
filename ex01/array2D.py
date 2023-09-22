@@ -9,7 +9,7 @@ def slice_me(family: list, start: int, end: int) -> list:
     try:
         if not isinstance(family, list):
             raise TypeError("Family is not a list!")
-        if len(family) == 0:
+        if not family:
             raise ValueError("List is empty!")
         for i in family:
             if not isinstance(i, list):
