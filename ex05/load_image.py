@@ -1,12 +1,10 @@
 from PIL import Image
-from numpy import array
 import numpy as np
+from numpy import array
 
 
 def ft_load(path: str) -> array:
-    """
-    Loads an image, converts it to RGB and prints its pixel contents.
-    """
+    """Loads an image, converts it to RGB and prints it pixel contents."""
 
     try:
         img = Image.open(path)
@@ -17,8 +15,8 @@ def ft_load(path: str) -> array:
     except (FileNotFoundError, Exception) as e:
         error_message = f"Error: {e}" if e else "Error."
         print(error_message)
-        return None
 
-    print(f"The shape of image is: {pixel_array.shape}")
-    print(pixel_array)
-    return pixel_array
+    else:
+        print(f"The shape of image is: {pixel_array.shape}")
+        print(pixel_array)
+        return pixel_array

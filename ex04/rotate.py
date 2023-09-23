@@ -1,7 +1,8 @@
 from PIL import Image
-import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
 from numpy import array
+from load_image import ft_load
 
 
 def main():
@@ -28,32 +29,15 @@ def main():
         plt.show()
 
 
-def ft_load(path: str) -> array:
-    """Loads image, converts it to RGB, returns array of the image's pixels"""
-
-    try:
-        img = Image.open(path)
-        if img.mode != "RGB":
-            img = img.convert("RGB")
-        pixel_data = np.array(img)
-
-    except (FileNotFoundError, Exception) as e:
-        error_message = f"Error: {e}" if e else "Error."
-        print(error_message)
-
-    else:
-        return pixel_data
-
-
 def zoom_and_greyscale(pixel_data: array) -> array:
     """Zooms into an image, converts it to greyscale and prints its contents"""
 
     sliced_array = pixel_data[100:500, 450:850]
+
     zoomed_in_image = Image.fromarray(sliced_array)
-
     greyscaled_image = zoomed_in_image.convert("L")
-    greyscaled_pixel_data = np.array(greyscaled_image)
 
+    greyscaled_pixel_data = np.array(greyscaled_image)
     if len(greyscaled_pixel_data.shape) == 2:
         greyscaled_2d = greyscaled_pixel_data
         greyscaled_3d = np.expand_dims(greyscaled_pixel_data, axis=2)

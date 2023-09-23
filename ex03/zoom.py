@@ -1,7 +1,8 @@
-from load_image import ft_load
 from PIL import Image
-import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
+from numpy import array
+from load_image import ft_load
 
 
 def main():
@@ -12,6 +13,7 @@ into a portion of it. The array is then converted back to an image
 to be converted into greyscale. Afterwards, expand another dimension
 on the new array to print its greyscale channel as part of its shape.
     """
+
     try:
         pixel_data = ft_load("animal.jpeg")
         if pixel_data is None:
@@ -22,21 +24,29 @@ on the new array to print its greyscale channel as part of its shape.
         print(error_message)
 
     else:
-        zoomed_in = pixel_data[100:500, 450:850]
-        zoomed_in_image = Image.fromarray(zoomed_in)
-        greyscaled_image = zoomed_in_image.convert("L")
-
-        greyscaled_pixel_data = np.array(greyscaled_image)
-
-        if len(greyscaled_pixel_data.shape) == 2:
-            greyscaled_2d = greyscaled_pixel_data
-            greyscaled_3d = np.expand_dims(greyscaled_pixel_data, axis=2)
+        modified_array = zoom_and_greyscale(pixel_data)
+        if len(modified_array.shape) == 2:
+            grey_2d_array = modified_array
+            grey_3d_array = np.expand_dims(modified_array, axis=2)
 
         print(f"New shape after slicing: \
-{greyscaled_3d.shape} or {greyscaled_2d.shape}")
-        print(greyscaled_3d)
-        plt.imshow(greyscaled_3d, cmap="grey")
+{grey_3d_array.shape} or {grey_2d_array.shape}")
+        print(grey_3d_array)
+
+        plt.imshow(grey_3d_array, cmap="grey")
         plt.show()
+
+
+def zoom_and_greyscale(data: array) -> array:
+    """Zoom into the image and convert it to greyscale."""
+
+    sliced_data = data[100:500, 450:850]
+
+    zoomed_in_image = Image.fromarray(sliced_data)
+    greyscaled_image = zoomed_in_image.convert("L")
+
+    greyscaled_pixel_data = np.array(greyscaled_image)
+    return greyscaled_pixel_data
 
 
 if __name__ == "__main__":
