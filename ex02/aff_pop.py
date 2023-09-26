@@ -64,7 +64,7 @@ def style_plot(country1: Series, country2: Series) -> None:
     ylabels = ["20M", "40M", "60M"]
     plt.yticks(yticks, ylabels)
 
-    plt.legend(["France", "Belgium"], loc="lower right")
+    plt.legend(["France", "Belgium"], loc="lower right", reverse=True)
     plt.show()
 
 
