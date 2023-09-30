@@ -26,11 +26,11 @@ class calculator:
 
         for i in range(len(self.vector)):
             self.vector[i] -= object
-    
+
         print(self.vector)
 
     def __truediv__(self, object) -> None:
-        """Applies non-floor division on each element in the vector with object"""
+        """Applies division on each element in the vector with object"""
 
         try:
             for i in range(len(self.vector)):
@@ -38,6 +38,6 @@ class calculator:
 
         except ZeroDivisionError as e:
             print(f"Error: {e}.")
+            return None
 
         print(self.vector)
-

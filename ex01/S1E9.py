@@ -2,32 +2,24 @@ from abc import ABC, abstractmethod
 
 
 class Character(ABC):
-    """A character"""
+    """A character."""
 
     @abstractmethod
     def __init__(self, first_name, is_alive=True):
-        """Initialize character"""
-
-        self.first_name = first_name
-        self.is_alive = is_alive
+        pass
 
     def die(self):
-        """Kill a character"""
+        """Unalive a character."""
 
-        if self.is_alive:
+        if self.is_alive is True:
             self.is_alive = False
 
 
 class Stark(Character):
-    """A Stark character"""
+    """Representing the Stark family."""
 
     def __init__(self, first_name, is_alive=True):
-        """Initialize a Stark"""
+        """Initialize an instance of a Stark."""
 
-        super().__init__(first_name, is_alive)
-
-    # def die(self):
-    #     """Kill a Stark"""
-
-    #     if self.is_alive:
-    #         self.is_alive = False
+        self.first_name = first_name
+        self.is_alive = is_alive
