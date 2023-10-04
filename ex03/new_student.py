@@ -4,11 +4,15 @@ from dataclasses import dataclass, field
 
 
 def generate_id() -> str:
+    """Generate a random id with 15 characters."""
+
     return "".join(random.choices(string.ascii_lowercase, k=15))
 
 
 @dataclass
 class Student:
+    """A student with name, surname, active status, login and id."""
+
     name: str
     surname: str
     active: bool = True
@@ -16,6 +20,8 @@ class Student:
     id: str = field(init=False)
 
     def __post_init__(self):
+        """Initialize login and id after __init__."""
+
         try:
             if not isinstance(self.name, str) or \
                not isinstance(self.surname, str):
