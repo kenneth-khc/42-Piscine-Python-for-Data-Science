@@ -1,7 +1,7 @@
 class calculator:
 
     def __init__(self, vector):
-        """Initialize an instance of a calculator."""
+        """Instantiate a calculator."""
 
         self.vector = vector
 
