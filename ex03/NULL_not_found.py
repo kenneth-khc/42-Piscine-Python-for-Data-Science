@@ -1,18 +1,29 @@
 def NULL_not_found(object: any) -> int:
+    """Checks for NULLS."""
+
     obj_type = type(object)
+    type_str = str(obj_type)
+
     if object:
         if object != object:
-            print("Cheese: nan " + str(obj_type))
+            print(f"Cheese: nan {type_str}")
+            return 0
+
         else:
             print("Type not Found")
-        return 1
+            return 1
+
     else:
         if object is None:
-            print("Nothing: None " + str(obj_type))
+            print(f"Nothing: None {type_str}")
+
         elif object is False:
-            print("Fake: False " + str(obj_type))
+            print(f"Fake: False {type_str}")
+
         elif object == 0:
-            print("Zero: 0 " + str(obj_type))
+            print(f"Zero: 0 {type_str}")
+
         elif object == "":
-            print("Empty: " + str(obj_type))
+            print(f"Empty: {type_str}")
+
         return 0

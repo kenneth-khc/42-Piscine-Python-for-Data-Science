@@ -1,8 +1,8 @@
 import time
 
 seconds = time.time()
-formatted_seconds = "{:,.4f}".format(seconds)
-scientific_notation = "{:.2e}".format(float(seconds))
+formatted_seconds = f"{seconds:,.4f}"
+scientific_notation = f"{float(seconds):.2e}"
 
 date = time.strftime("%b %d %Y")
 

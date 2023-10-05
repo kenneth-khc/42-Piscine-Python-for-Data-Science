@@ -3,9 +3,10 @@ def ft_tqdm(lst: range) -> None:
     Iterates through an object and prints a progress bar
     signifying the progress of the list to be iterated.
     """
+
     for i in lst:
         completion = int(i / len(lst) * 100) + 1
-        max_bar_length = 123
+        max_bar_length = 130
         bar_length = int(i / len(lst) * (max_bar_length)) + 1
         spaces = max_bar_length - bar_length
         formatted_strings = []
