@@ -48,11 +48,13 @@ def main():
     """
 
     try:
-        if len(sys.argv) == 2:
+        if len(sys.argv) > 2:
             raise AssertionError("Too many arguments")
         if len(sys.argv) == 1:
             print("What is the text to count?")
             argument = sys.stdin.readline()
+        else:
+            argument = sys.argv[1]
 
     except AssertionError as e:
         print(f"AssertionError: {e}")
